@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ActividadResource\Pages;
 use App\Filament\Resources\ActividadResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\Auth;
 
 class EditActividad extends EditRecord
 {

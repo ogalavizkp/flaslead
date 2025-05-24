@@ -32,9 +32,9 @@ class ContactApiController extends Controller
             ->orWhere('phone3', $phone)
             ->first();
 
-             // Devolver nombre si tiene, o texto genérico
+        // Devolver nombre si tiene, o texto genérico
         $name = $contact->first_name ?? 'Estimado usuario';
-        
+        $lastname = $contact->last_name;
         // Si no existe, crear nuevo contacto
         if (!$contact) {
             $contact = Contact::create([
@@ -46,10 +46,11 @@ class ContactApiController extends Controller
             ]);
         }
 
-       
+
 
         return response()->json([
-            'name' => $name
+            'name' => $name,
+            'lastname' => $lastname
         ]);
     }
 }

@@ -117,7 +117,7 @@ class ContactResource extends Resource
                 Tables\Columns\TextColumn::make('area')
                     ->label(__('contact.area'))
                     ->searchable(),
-                Tables\Columns\TextColumn::make('company_id')
+                Tables\Columns\TextColumn::make('company.name')
                     ->label(__('contact.company_id'))
                     ->numeric()
                     ->sortable(),

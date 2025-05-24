@@ -23,13 +23,31 @@ class CompanyResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('type')
-                    ->required()
-                    ->maxLength(255)
+                Forms\Components\Select::make('type')
+                    ->label(__('contact.type'))
+                    ->options([
+                        'persona' => 'Persona',
+                        'empresa' => 'Empresa',
+                    ])
                     ->default('empresa')
-                    ->label(__('company.type'))
+                    ->required()
                     ->columnSpanFull()
                     ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
+
+                Forms\Components\Select::make('category')
+                    ->label(__('contact.category'))
+                    ->options([
+                        'prospecto' => 'Prospecto de Venta',
+                        'oportunidad' => 'Oportunidad',
+                        'cliente' => 'Cliente',
+                        'proveedor' => 'Proveedor',
+                        'revendedor' => 'revendedor',
+                    ])
+                    ->default('empresa')
+                    ->required()
+                    ->columnSpanFull()
+                    ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
+
                 Forms\Components\TextInput::make('name')
                     ->required()
                     ->maxLength(255)
@@ -96,30 +114,41 @@ class CompanyResource extends Resource
                     ->label(__('company.phone3'))
                     ->columnSpanFull()
                     ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
-                Forms\Components\TextInput::make('category')
-                    ->required()
-                    ->maxLength(255)
-                    ->default('prospecto')
-                    ->label(__('company.category'))
-                    ->columnSpanFull()
-                    ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
-                Forms\Components\TextInput::make('status')
-                    ->required()
-                    ->maxLength(255)
-                    ->default('activo')
+
+
+
+                Forms\Components\Select::make('status')
                     ->label(__('company.status'))
+                    ->required()
+                    ->default('activo')
+                    ->options([
+                        'activo' => __('company.status_activo'),
+                        'inactivo' => __('company.status_inactivo'),
+                    ])
                     ->columnSpanFull()
-                    ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
-                Forms\Components\TextInput::make('employees')
-                    ->numeric()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
+
+                Forms\Components\Select::make('employees')
                     ->label(__('company.employees'))
+                    ->options([
+                        '1-10' => '1-10',
+                        '11-50' => '11-50',
+                        '51-100' => '51-100',
+                        '101-500' => '101-500',
+                        '501-1000' => '501-1000',
+                        '1000+' => '1000+',
+                    ])
                     ->columnSpanFull()
                     ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
+
                 Forms\Components\TextInput::make('revenue_range')
                     ->maxLength(255)
                     ->label(__('company.revenue_range'))
                     ->columnSpanFull()
                     ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
+
                 Forms\Components\RichEditor::make('notes')
                     ->label(__('company.notes'))
                     ->columnSpanFull()

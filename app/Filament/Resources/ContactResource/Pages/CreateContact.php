@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ContactResource\Pages;
 use App\Filament\Resources\ContactResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
+use Illuminate\Support\Facades\Auth;
 
 class CreateContact extends CreateRecord
 {

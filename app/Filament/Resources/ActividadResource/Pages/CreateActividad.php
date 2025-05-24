@@ -5,6 +5,7 @@ namespace App\Filament\Resources\ActividadResource\Pages;
 use App\Filament\Resources\ActividadResource;
 use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
+use Illuminate\Support\Facades\Auth;
 
 class CreateActividad extends CreateRecord
 {

@@ -33,7 +33,7 @@ return new class extends Migration
             $table->enum('status', ['activo', 'inactivo', 'en negociacion'])->default('activo'); // Estado de la cuenta
 
             // Información adicional
-            $table->integer('employees')->nullable(); // Número de empleados
+            $table->string('employees')->nullable(); // Número de empleados
             $table->string('revenue_range')->nullable(); // Rango de ingresos
             
           
