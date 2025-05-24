@@ -41,7 +41,8 @@ class UserResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('account_id')
                     ->numeric(),
-            ]);
+            ])->columnSpanFull()
+            ->extraAttributes(['class' => 'w-full']);;
     }
 
     public static function table(Table $table): Table

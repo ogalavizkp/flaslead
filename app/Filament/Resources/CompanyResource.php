@@ -153,7 +153,8 @@ class CompanyResource extends Resource
                     ->label(__('company.notes'))
                     ->columnSpanFull()
                     ->extraInputAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
-            ]);
+            ])->columnSpanFull()
+            ->extraAttributes(['class' => 'w-full']);;
     }
 
     public static function table(Table $table): Table

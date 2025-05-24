@@ -18,18 +18,20 @@ class AppServiceProvider extends ServiceProvider
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     */
+   
+
     public function boot(): void
     {
+        // Registra un panel predeterminado
+
+
         ResetPassword::createUrlUsing(function (object $notifiable, string $token) {
-            return config('app.frontend_url')."/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
+            return config('app.frontend_url') . "/password-reset/$token?email={$notifiable->getEmailForPasswordReset()}";
         });
 
         LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
             $switch
-                ->locales(['en','es'])
+                ->locales(['en', 'es'])
                 ->flags([
                     'en' => asset('flags/en.svg'),
                     'es' => asset('flags/es.svg')
@@ -41,7 +43,5 @@ class AppServiceProvider extends ServiceProvider
                     // Additional custom routes where the switcher should be visible outside panels
                 ]);
         });
-
-        
     }
 }
