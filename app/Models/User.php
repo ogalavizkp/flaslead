@@ -9,8 +9,14 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
+    public function canAccessPanel(Panel $panel): bool
+    {
+        //return str_ends_with($this->email, '@aloglobal.com') && $this->hasVerifiedEmail();
+        return true;
+    }
     use HasFactory, Notifiable;
 
+    
     /**
      * The attributes that are mass assignable.
      *
