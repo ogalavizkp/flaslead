@@ -23,32 +23,78 @@ class ContactResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\Select::make('company_id')
+                    ->label(__('contact.company_id'))
+                    ->relationship('company', 'name')
+                    ->searchable()
+                    ->preload()
+                    ->required()
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
                 Forms\Components\TextInput::make('first_name')
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(64)
+                    ->label(__('contact.first_name'))
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
                 Forms\Components\TextInput::make('last_name')
-                    ->maxLength(255),
+                    ->maxLength(64)
+                    ->label(__('contact.last_name'))
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
-                    ->maxLength(255),
+                    ->maxLength(64)
+                    ->label(__('contact.email'))
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
                 Forms\Components\TextInput::make('phone')
                     ->tel()
-                    ->maxLength(255),
+                    ->maxLength(32)
+                    ->label(__('contact.phone'))
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
                 Forms\Components\TextInput::make('phone2')
                     ->tel()
-                    ->maxLength(255),
+                    ->maxLength(32)
+                    ->label(__('contact.phone2'))
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
                 Forms\Components\TextInput::make('phone3')
                     ->tel()
-                    ->maxLength(255),
+                    ->maxLength(32)
+                    ->label(__('contact.phone3'))
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
                 Forms\Components\TextInput::make('area')
-                    ->maxLength(255),
-                Forms\Components\Textarea::make('notes')
-                    ->columnSpanFull(),
-                Forms\Components\TextInput::make('company_id')
-                    ->numeric(),
-                Forms\Components\TextInput::make('account_id')
-                    ->numeric(),
+                    ->maxLength(32)
+                    ->label(__('contact.area'))
+                    ->columnSpanFull()
+                    ->extraAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
+
+                Forms\Components\RichEditor::make('notes')
+                    ->label(__('contact.notes'))
+                    ->columnSpanFull()
+                    ->extraInputAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
             ]);
     }
 
@@ -57,37 +103,36 @@ class ContactResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('first_name')
+                    ->label(__('contact.first_name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('last_name')
+                    ->label(__('contact.last_name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
+                    ->label(__('contact.email'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('phone')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('phone2')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('phone3')
+                    ->label(__('contact.phone'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('area')
+                    ->label(__('contact.area'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('company_id')
-                    ->numeric()
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('account_id')
+                    ->label(__('contact.company_id'))
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
+                    ->label(__('updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
             ])
-            ->filters([
-                //
-            ])
+            ->filters([])
             ->actions([
                 Tables\Actions\EditAction::make(),
             ])
@@ -100,9 +145,7 @@ class ContactResource extends Resource
 
     public static function getRelations(): array
     {
-        return [
-            //
-        ];
+        return [];
     }
 
     public static function getPages(): array

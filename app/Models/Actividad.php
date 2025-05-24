@@ -24,11 +24,11 @@ class Actividad extends Model
         'relacionable_type'
     ];
 
-    public function relacionable()
+   
+    public function company()
     {
-        return $this->morphTo();
+        return $this->belongsTo(Company::class);
     }
-
     public function owner()
     {
         return $this->belongsTo(User::class, 'created_by');

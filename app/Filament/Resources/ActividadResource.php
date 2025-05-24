@@ -26,14 +26,12 @@ class ActividadResource extends Resource
         return $form
             ->schema([
 
-                MorphToSelect::make('relacionable')
-                    ->types([
-                        MorphToSelect\Type::make(\App\Models\Company::class)
-                            ->titleAttribute('name')
-                            ->label('Compañía'),
-                    ])
+                Forms\Components\Select::make('company_id')
+                    ->label(__('actividad.company_id'))
+                    ->relationship('company', 'name')
+                    ->searchable()
+                    ->preload()
                     ->required()
-                    ->label('actividad.Relacionado con')
                     ->columnSpanFull()
                     ->extraAttributes([
                         'style' => 'height: 50px; padding: 10px; font-size: 16px;',
@@ -94,29 +92,29 @@ class ActividadResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('relacionable.name')
-                    ->label('actividad.Compañía Relacionada')
+                    ->label(__('actividad.Compañía Relacionada'))
                     ->searchable()
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('titulo')
-                    ->label('actividad.titulo')
+                    ->label(__('actividad.titulo'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('tipo')
-                    ->label('actividad.tipo')
+                    ->label(__('actividad.tipo'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('prioridad')
-                    ->label('actividad.prioridad')
+                    ->label(__('actividad.prioridad'))
                     ->searchable(),
                 Tables\Columns\IconColumn::make('estado')
-                    ->label('actividad.estado')
+                    ->label(__('actividad.estado'))
                     ->boolean(),
                 Tables\Columns\TextColumn::make('created_at')
-                    ->label('actividad.created_at')
+                    ->label(__('actividad.created_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
                 Tables\Columns\TextColumn::make('updated_at')
-                    ->label('actividad.updated_at')
+                    ->label(__('actividad.updated_at'))
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
