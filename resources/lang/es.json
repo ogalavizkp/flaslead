@@ -5,6 +5,10 @@
     "end_date": "Finaliza",
     "view": "Ver",
 
+    "user.users":"Usuarios",
+
+    "presale.Presales": "Preventas",
+    "presale.Presale": "Preventa",
     "presale.Company Name": "Nombre empresa",
     "presale.portfolio": "Portafolio",
     "presale.Task type": "Tipo Tarea",
@@ -15,17 +19,12 @@
     "presale.notification_emails": "Notificación publica",
     "presale.add email":"Agregar Email y tabular",
     "presale.description":"Descripción publica",
-
-
     "presale.priorities.high": "Alta",
     "presale.priorities.medium": "Media",
     "presale.priorities.low": "Baja",
-
     "presale.task_types.Advisory": "Acompañamiento",
     "presale.task_types.Feasibility": "Viabilidad",
     "presale.task_types.Support": "Soporte",
-
-
     "presale.statuses.pending": "Pendiente",
     "presale.statuses.in_progress": "Media",
     "presale.statuses.postponed": "Pospuesto",
@@ -33,12 +32,9 @@
     "presale.statuses.returned_incomplete_info": "Devuelto-Incompleto",
     "presale.statuses.completed": "Completado",
     "presale.statuses.expired": "Expirado",
-
-
     "Advisory": "Acompañamiento con el Comercial",
     "Feasibility": "Viabilidad",
     "Support": "Soporte",
-
     "high": "Alta",
     "medium": "Media",
     "low": "Baja",
@@ -53,16 +49,17 @@
     "presale.companies.name":"Empresa",
     "presale.task_type":"Tipo",
     "presale.meeting_subject":"Asunto Actividad",
-
+    "contact.contacts":"Contactos",
     "contact.first_name":"Nombres",
     "contact.last_name":"Apellidos",
     "contact.email":"Email",
-    "contact.phone":"phone",
-    "contact.phone1":"phone1",
-    "contact.phone2":"phone2",
+    "contact.phone":"Telefono1",
+    "contact.phone2":"Telefono2",
+    "contact.phone3":"Telefono3",
     "contact.area":"Area",
     "contact.company_id":"Empresa",
 
+    "company.companies":"Empresas",
     "company.type": "Tipo",
     "company.name": "Nombre",
     "company.trade_name": "Nombre Comercial",
@@ -82,8 +79,7 @@
     "company.notes": "Notas",
     "company.owner_id": "Propietario",
     "company.account_id": "Cuenta",
-
-        "actividad.Relacionado con": "Relacionado con",
+    "actividad.Relacionado con": "Relacionado con",
     "actividad.titulo": "Título",
     "actividad.description": "Descripción",
     "actividad.tipo": "Tipo",
@@ -92,5 +88,10 @@
     "actividad.recordatorio": "Recordatorio",
     "actividad.recordatorio_fecha": "Fecha de Recordatorio",
     "actividad.Compañía Relacionada": "Compañía Relacionada",
+    "actividad.company_id":"Empresa",
+    "actividad.actividads":"Actividades"
+
+
+
 
 }

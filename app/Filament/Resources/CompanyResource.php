@@ -19,6 +19,21 @@ class CompanyResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public static function getNavigationLabel(): string
+    {
+        return __('company.companies');
+    }
+
+    public function getTitle(): string
+    {
+        return __('company.companies');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('company.companies');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -60,13 +75,11 @@ class CompanyResource extends Resource
                     ->columnSpanFull()
                     ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
                 Forms\Components\TextInput::make('identification_type')
-                    ->required()
                     ->maxLength(255)
                     ->label(__('company.identification_type'))
                     ->columnSpanFull()
                     ->extraAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
                 Forms\Components\TextInput::make('identification')
-                    ->required()
                     ->maxLength(255)
                     ->label(__('company.identification'))
                     ->columnSpanFull()
@@ -153,8 +166,7 @@ class CompanyResource extends Resource
                     ->label(__('company.notes'))
                     ->columnSpanFull()
                     ->extraInputAttributes(['style' => 'height: 50px; padding: 10px; font-size: 16px;']),
-            ])->columnSpanFull()
-            ->extraAttributes(['class' => 'w-full']);;
+            ])->extraAttributes(['class' => 'w-full']);;
     }
 
     public static function table(Table $table): Table

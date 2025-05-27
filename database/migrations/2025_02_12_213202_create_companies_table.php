@@ -17,8 +17,8 @@ return new class extends Migration
             $table->enum('type', ['persona', 'empresa'])->default('empresa'); // Tipo de entidad
             $table->string('name')->unique();
             $table->string('trade_name')->nullable(); // Nombre comercial
-            $table->string('identification_type'); // Tipo de identificación
-            $table->string('identification')->unique(); // Número de identificación
+            $table->string('identification_type')->nullable(); // Tipo de identificación
+            $table->string('identification')->unique()->nullable(); // Número de identificación
             $table->string('email')->nullable();
             $table->string('website')->nullable();
             $table->text('address')->nullable();

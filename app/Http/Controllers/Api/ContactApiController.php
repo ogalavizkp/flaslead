@@ -34,12 +34,14 @@ class ContactApiController extends Controller
 
         // Devolver nombre si tiene, o texto genérico
         $name = $contact->first_name ?? 'Estimado usuario';
-        $lastname = $contact->last_name;
+        $lastname = $contact->last_name ?? '';
+        $names = $name .' '. $lastname;
+          
         // Si no existe, crear nuevo contacto
         if (!$contact) {
             $contact = Contact::create([
                 'phone' => $phone,
-                'first_name' => $name,
+                'first_name' => $names,
                 'account_id' => $accountId,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),

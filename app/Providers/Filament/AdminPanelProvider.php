@@ -28,6 +28,7 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->id('admin')
             ->path('admin')
+            ->login()
             ->brandName('AloGlobal')
             ->defaultThemeMode(ThemeMode::Light)
             ->font('Open Sans', provider: GoogleFontProvider::class)
@@ -45,6 +46,7 @@ class AdminPanelProvider extends PanelProvider
                 \App\Filament\Resources\CompanyResource::class,
                 \App\Filament\Resources\ContactResource::class,
                 \App\Filament\Resources\ActividadResource::class,
+                \App\Filament\Resources\PresaleResource::class,
             ])
             ->discoverWidgets(in: app_path('Filament/Admin/Widgets'), for: 'App\\Filament\\Admin\\Widgets')
             ->widgets([
@@ -52,6 +54,7 @@ class AdminPanelProvider extends PanelProvider
                 Widgets\FilamentInfoWidget::class,
             ])
             ->middleware([
+                 \App\Http\Middleware\AllowIframeMiddleware::class,
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
                 StartSession::class,

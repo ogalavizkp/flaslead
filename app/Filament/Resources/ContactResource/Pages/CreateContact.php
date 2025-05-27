@@ -13,7 +13,9 @@ class CreateContact extends CreateRecord
 
      protected function mutateFormDataBeforeCreate(array $data): array
     {
+        
         $data['created_by'] = Auth::id();
+        $data['account_id'] = Auth::user()->account_id;
         return $data;
     }
 }

@@ -11,10 +11,10 @@ class CreateActividad extends CreateRecord
 {
     protected static string $resource = ActividadResource::class;
 
-     protected function mutateFormDataBeforeCreate(array $data): array
+    protected function mutateFormDataBeforeCreate(array $data): array
     {
         $data['created_by'] = Auth::id();
+        $data['account_id'] = Auth::user()->account_id;
         return $data;
     }
-    
 }

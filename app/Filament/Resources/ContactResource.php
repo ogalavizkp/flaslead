@@ -19,6 +19,23 @@ class ContactResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+
+    public static function getNavigationLabel(): string
+    {
+        return __('contact.contacts');
+    }
+
+    public function getTitle(): string
+    {
+        return __('contact.contacts');
+    }
+
+  public static function getModelLabel(): string
+    {
+        return __('contact.contacts');
+    }
+
+   
     public static function form(Form $form): Form
     {
         return $form
@@ -51,6 +68,7 @@ class ContactResource extends Resource
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
+                    ->unique()
                     ->maxLength(64)
                     ->label(__('contact.email'))
                     ->columnSpanFull()
@@ -96,7 +114,6 @@ class ContactResource extends Resource
                         'style' => 'height: 50px; padding: 10px; font-size: 16px;',
                     ]),
             ])
-            ->columnSpanFull()
             ->extraAttributes(['class' => 'w-full']);;
     }
 

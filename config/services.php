@@ -13,6 +13,11 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'mailgun' => [
+        'domain' => env('MAILGUN_DOMAIN'),
+        'key' => env('MAILGUN_API_KEY'),
+        'from' => env('MAILGUN_FROM', 'noreply@aloglobal.com'),
+    ],
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),

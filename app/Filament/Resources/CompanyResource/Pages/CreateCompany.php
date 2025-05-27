@@ -12,9 +12,10 @@ class CreateCompany extends CreateRecord
 {
     protected static string $resource = CompanyResource::class;
 
-     protected function mutateFormDataBeforeCreate(array $data): array
+    protected function mutateFormDataBeforeCreate(array $data): array
     {
         $data['created_by'] = Auth::id();
+        $data['account_id'] = Auth::user()->account_id;
         return $data;
     }
 }

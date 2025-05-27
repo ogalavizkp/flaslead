@@ -19,6 +19,21 @@ class UserResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+     public static function getNavigationLabel(): string
+    {
+        return __('user.users');
+    }
+
+    public function getTitle(): string
+    {
+        return __('user.users');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('user.users');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -41,7 +56,7 @@ class UserResource extends Resource
                     ->maxLength(255),
                 Forms\Components\TextInput::make('account_id')
                     ->numeric(),
-            ])->columnSpanFull()
+            ])
             ->extraAttributes(['class' => 'w-full']);;
     }
 

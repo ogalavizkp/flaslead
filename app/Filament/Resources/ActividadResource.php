@@ -21,6 +21,21 @@ class ActividadResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    public function getTitle(): string
+    {
+        return __('actividad.actividads');
+    }
+
+    public static function getModelLabel(): string
+    {
+        return __('actividad.actividads');
+    }
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('actividad.actividads');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
@@ -44,11 +59,7 @@ class ActividadResource extends Resource
                     ->extraAttributes([
                         'style' => 'height: 50px; padding: 10px; font-size: 16px;',
                     ]),
-                Forms\Components\RichEditor::make('description')
-                    ->label(__('actividad.description'))
-                    ->columnSpanFull()->extraInputAttributes([
-                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
-                    ]),
+
                 Forms\Components\TextInput::make('tipo')
                     ->label(__('actividad.tipo'))
                     ->required()
@@ -84,8 +95,12 @@ class ActividadResource extends Resource
                     ->extraAttributes([
                         'style' => 'height: 50px; padding: 10px; font-size: 16px;',
                     ]),
+                Forms\Components\RichEditor::make('description')
+                    ->label(__('actividad.description'))
+                    ->columnSpanFull()->extraInputAttributes([
+                        'style' => 'height: 50px; padding: 10px; font-size: 16px;',
+                    ]),
             ])
-            ->columnSpanFull()
             ->extraAttributes(['class' => 'w-full']);
     }
 
